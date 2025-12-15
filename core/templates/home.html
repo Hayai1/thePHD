@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}The Band{% endblock %}
+
+{% block content %}
+  <!-- HERO IMAGE -->
+  <section class="hero">
+    <img
+      src="{% static 'images/band.jpg' %}"
+      alt="The Band live"
+      class="hero-img"
+    />
+  </section>
+  
+
+  <section class="logo-bar">
+    <img
+      src="{% static 'images/logo.png' %}"
+      alt="The Band logo"
+      class="logo-img"
+    />
+  </section>
+
+
+  <section class="home-content">
+    <h1>New single out now</h1>
+    <p>Indie rock from London. Loud guitars, sad synths.</p>
+  </section>
+
+{% endblock %}
