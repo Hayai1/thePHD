@@ -4,28 +4,52 @@
 {% block title %}The Band{% endblock %}
 
 {% block content %}
-  <!-- HERO IMAGE -->
-  <section class="hero">
-    <img
-      src="{% static 'images/band.jpg' %}"
-      alt="The Band live"
-      class="hero-img"
-    />
-  </section>
+<div id="logo-intro">
+  <img src="{% static 'images/logo.png' %}" class="logo-intro-image" alt="">
+</div>
+
+<div class="hero">
+  <img src="{% static 'images/band.jpg' %}" class="hero-image" alt="">
+  <div class="transparent-gradient"></div>
+  <img src="{% static 'images/logo.png' %}" class="hero-overlay" alt="">
+</div>
+
+<div class="content">
+  <h1>SO MUCH TO SAY</h1>
+  <img src="{% static 'images/sm2spic.jpeg' %}" class="album-cover" alt="Album Cover">
+  <h3>Out Now</h3>
+  <button class="btn liquid" onclick="window.location.href='https://open.spotify.com/artist/6pXpXKPh2epNmSUHFVnB64'">
+  <span>Spotify</span>
+</button>
+  
+  <div class="video-wrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/FAzaIb6wQ5E?si=m5cch7uk3BNsUcjv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+  <div class="social-buttons"> 
+    <button class="btn liquid" onclick="window.location.href='https://www.instagram.com/thephdband'">
+      <span>Instagram</span></button>
+    <button class="btn liquid" onclick="window.location.href='https://www.youtube.com/channel/UCG9HmgPP-b1Y6KsHiP2DIAQ'">
+      <span>Youtube</span></button>
+    <button class="btn liquid" onclick="window.location.href='https://www.tiktok.com/@thephdband'">
+      <span>Tik Tok</span></button>
+    </div>
+  </div>
+
+
+</div>
+
+<script>
+  window.addEventListener('load', () => {
+    const intro = document.getElementById('logo-intro');
+
+    setTimeout(() => {
+      intro.remove();
+    }, 2200); // must match animation timing
+  });
+</script>
+
+
   
 
-  <section class="logo-bar">
-    <img
-      src="{% static 'images/logo.png' %}"
-      alt="The Band logo"
-      class="logo-img"
-    />
-  </section>
-
-
-  <section class="home-content">
-    <h1>New single out now</h1>
-    <p>Indie rock from London. Loud guitars, sad synths.</p>
-  </section>
 
 {% endblock %}

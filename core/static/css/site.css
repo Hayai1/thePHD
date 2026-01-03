@@ -1,44 +1,195 @@
+@font-face {
+    font-family: 'MyFont';
+    src: url('../fonts/neuehaasgrotdisp-75bold-trial.otf') format('donwnloadfont1'),
+         url('../fonts/neuehaasgrotdisp-16xxthinitalic-trial.otf') format('donwnloadfont2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html, body {
+  margin: 0;
+  padding: 0;
+  background: #020323;
   overflow-x: hidden;
-  overflow-y: hidden;
+  font-family: 'Playfair Display';
 }
-body { margin: 0; }
 
+/* ---------------- HERO ---------------- */
 .hero {
+  position: relative;
   width: 100%;
+  aspect-ratio: 8 / 3;   /* 🔑 THIS IS THE FIX */
+  overflow: hidden;
 }
 
-.hero-img {
+/* Hero image no longer controls layout */
+.hero-image {
+  position: absolute;    /* removed from flow ON PURPOSE */
+  inset: 0;
   width: 100%;
-  height: 80vh;              
-  object-fit: cover;    
+  height: 100%;
+  object-fit: cover;
+  object-position: center 10%; /* desktop crop */
+}
+
+/* Fade */
+.transparent-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 180px;
+  background: linear-gradient(
+    to bottom,
+    rgba(2,3,35,0),
+    rgba(2,3,35,1)
+  );
+  pointer-events: none;
+}
+
+/* Overlay image */
+.hero-overlay {
+  position: absolute;
+  top: 3%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 25%;
+}
+
+/* ---------------- CONTENT ---------------- */
+.content {
+  font-family: 'Playfair Display';
+  background: #020323;
+  padding: 4rem;
+  color: white;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+
+/* ---------------- VIDEO EMBED ---------------- */
+.video-wrapper {
+  width: 100%;
+  max-width: 960px;     /* optional – keeps it from being huge on desktop */
+  margin: 4rem auto;    /* center it */
+  aspect-ratio: 16 / 9; /* keeps video responsive */
+}
+
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
   display: block;
-  
 }
 
-@media (max-width: 768px) {
-  .hero-img { height:100%; }
+.album-cover {
+  width: 25%;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
 }
 
-.logo-bar {
-  width: 100%;
-  height: 15vh;
+/* ---------------- BUTTONS ---------------- */
+
+
+
+.btn {
+  font-family: 'MyFont';
+  position: relative;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  background: none;
+  border: 2px solid #F2F2F7;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.liquid {
+  background: linear-gradient(#F2F2F7 0 0) no-repeat calc(200% - var(--p, 0%))
+    100% / 200% var(--p, 0.2em);
+  transition: 0.3s var(--t, 0s),
+    background-position 0.3s calc(0.3s - var(--t, 0s));
+}
+
+.liquid:hover {
+  --p: 100%;
+  --t: 0.3s;
+  color: black;
+}
+
+
+.social-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Fullscreen intro overlay */
+#logo-intro {
+  position: fixed;
+  inset: 0;
+  background: #020323; /* match your site background */
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 9999;
+  animation: intro-fade-out 0.6s ease forwards;
+  animation-delay: 1.6s; /* total intro duration */
+}
 
-  background-color: #0C1014;
-  border-bottom: 1px solid #e5e5e5;
+/* Logo animation */
+#logo-intro img {
+  width: 25%; /* adjust size */
+  height: auto;
+  animation: logo-pop 0.8s ease-out forwards;
+}
+
+/* Logo pop-in */
+@keyframes logo-pop {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  70% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Overlay fade-out */
+@keyframes intro-fade-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
 }
 
 
-.logo-img {
-  height: 20vh;
-  width: auto;
-}
+/* ---------------- MOBILE ---------------- */
+@media (max-width: 768px) {
+  .hero {
+    aspect-ratio: 4 / 2;   /* taller hero on phones */
+  }
 
-.home-content {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 0 20px;
+  .hero-image {
+    object-position: center; /* reset crop */
+  }
+
+  .hero-overlay {
+    width: 15%;
+    top: 3%;
+  }
+
+  .transparent-gradient {
+    height: 140px;
+  }
 }

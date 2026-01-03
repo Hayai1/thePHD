@@ -8,4 +8,5 @@ urlpatterns = [
     path("gigs/", views.gigs, name="gigs"),
     path("music/", views.music, name="music"),
     path("contact/", views.contact, name="contact"),
+
 ]
