@@ -1,8 +1,10 @@
 from django.shortcuts import render
+from .models import Tour
 
 
 def home(request):
-    return render(request, "home.html")
+    tours = Tour.objects.all()
+    return render(request, 'home.html', {'tours': tours})
 
 def gigs(request):
     return render(request, "gigs.html")

@@ -18,6 +18,7 @@
   <h1>SO MUCH TO SAY</h1>
   <img src="{% static 'images/sm2spic.jpeg' %}" class="album-cover" alt="Album Cover">
   <h3>Out Now</h3>
+  <br>
   <button class="btn liquid" onclick="window.location.href='https://open.spotify.com/artist/6pXpXKPh2epNmSUHFVnB64'">
   <span>Spotify</span>
 </button>
@@ -35,7 +36,22 @@
     </div>
   </div>
 
+<h1 class="tour-title">SHOWS</h1>
 
+    <div class="tour-list">
+        {% for tour in tours %}
+            <div class="tour-row">
+                <div class="tour-date">{{ tour.date|date:"M d, Y" }}</div>
+                <div class="tour-location">{{ tour.venue }} | {{ tour.city }}, {{ tour.country }}</div>
+                <div class="tour-button">
+                    <a href="{{ tour.ticket_link }}" class="tour-btn">TICKETS</a>
+                </div>
+            </div>
+        {% empty %}
+            <p>No shows at the moment check in soon!.</p>
+        {% endfor %}
+    </div>
+    <br>
 </div>
 
 <script>
