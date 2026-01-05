@@ -1,3 +1,4 @@
+
 """
 Django settings for thePhdSite project.
 
@@ -11,7 +12,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,7 +26,7 @@ SECRET_KEY = "django-insecure-12tzxc6+6pbq#g@zd$y@-fn2*_@i@9fb-&_8sm)1z7wx55ppgj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "0.0.0.0", "band.local", "thephdband.onrender.com"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "0.0.0.0", "band.local", "13.60.205.46", "thephd.band", "13.61.219.7", "www.thephd.uk"]
 
 
 # Application definition
@@ -50,7 +51,8 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 ROOT_URLCONF = "thePhdSite.urls"
 
@@ -116,5 +118,3 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
-
-STATIC_URL = "static/"
