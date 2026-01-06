@@ -17,10 +17,10 @@
 <div class="content">
   <h1>SO MUCH TO SAY</h1>
   <img src="{% static 'images/sm2spic.jpeg' %}" class="album-cover" alt="Album Cover">
-  <h3>Out Now</h3>
+  <h3>OUT NOW</h3>
   <br>
   <button class="btn liquid" onclick="window.location.href='https://open.spotify.com/artist/6pXpXKPh2epNmSUHFVnB64'">
-  <span>Spotify</span>
+  <span>SPOTIFY</span>
 </button>
   
   <div class="video-wrapper">
@@ -28,11 +28,11 @@
 </div>
   <div class="social-buttons"> 
     <button class="btn liquid" onclick="window.location.href='https://www.instagram.com/thephdband'">
-      <span>Instagram</span></button>
+      <span>INSTAGRAM</span></button>
     <button class="btn liquid" onclick="window.location.href='https://www.youtube.com/channel/UCG9HmgPP-b1Y6KsHiP2DIAQ'">
-      <span>Youtube</span></button>
+      <span>YOUTUBE</span></button>
     <button class="btn liquid" onclick="window.location.href='https://www.tiktok.com/@thephdband'">
-      <span>Tik Tok</span></button>
+      <span>TIK TOK</span></button>
     </div>
   </div>
 
@@ -41,7 +41,7 @@
     <div class="tour-list">
         {% for tour in tours %}
             <div class="tour-row">
-                <div class="tour-date">{{ tour.date|date:"M d, Y" }}</div>
+                <div class="tour-date">{{ tour.date }}</div>
                 <div class="tour-location">{{ tour.venue }} | {{ tour.city }}, {{ tour.country }}</div>
                 <div class="tour-button">
                     <a href="{{ tour.ticket_link }}" class="tour-btn">TICKETS</a>
@@ -52,6 +52,8 @@
         {% endfor %}
     </div>
     <br>
+    <div class="footer-note">
+      <p>FOR INQUIRIES, PLEASE CONTACT: thephdbandexeter@gmail.com</p>
 </div>
 
 <script>

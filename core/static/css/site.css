@@ -13,13 +13,13 @@ html, body {
     padding: 0;
     background: #020323;
     overflow-x: hidden;
-    font-family: 'MyFont', sans-serif;
+    font-family: sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
     padding: 0;
-    font-family: 'MyFont', sans-serif;
+    font-family: sans-serif;
     text-align: center;
     color: white;
 }
@@ -94,16 +94,15 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ---------------- BUTTONS ---------------- */
 .btn {
-    font-family: 'MyFont', sans-serif;
+    font-family: sans-serif;
     position: relative;
     padding: 1rem 2rem;
-    font-size: 1rem;
-    font-weight: 700;
+    font-size: clamp(0.3rem, 2vw, 1rem);
+    font-weight: 400;
     color: white;
     background: none;
     border: 2px solid #F2F2F7;
     cursor: pointer;
-    overflow: hidden;
     transition: all 0.3s ease;
 }
 
@@ -122,7 +121,8 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     gap: 1rem;
     justify-content: center;
-    margin-top: 2rem;
+    margin-top: 1.5rem; /* Adjusted margin for better spacing */
+    font: sans-serif;
 }
 
 /* ---------------- FULLSCREEN INTRO ---------------- */
@@ -161,7 +161,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
+    padding: 15px 20px; /* Added horizontal padding for space on the sides */
     border-bottom: 1px solid #ccc;
 }
 
@@ -192,7 +192,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a.tour-btn {
-    font: "MyFont", sans-serif;
+    font: sans-serif;
     color: white;
     background-color: transparent;
 }
@@ -200,6 +200,17 @@ a.tour-btn {
 .tour-btn:hover {
     background-color: white;
     color: #020323;
+}
+
+.footer-note {
+    font-family: sans-serif;
+    text-align: center;
+    color: white;
+
+    margin-top: 40px;
+    font-weight: 300;
+    font-size: 0.6rem;
+    font-style: italic;
 }
 
 /* ---------------- ANIMATIONS ---------------- */
@@ -219,4 +230,7 @@ a.tour-btn {
     .hero-image { object-position: center; }
     .hero-overlay { width: 15%; top: 3%; }
     .transparent-gradient { height: 140px; }
+    btn{
+        padding: 0.75rem 1.5rem;
+    }
 }
